@@ -3,18 +3,18 @@ import config from "../config.json" assert {type: "json"};
 import { join, dirname} from "path";
 import {readdir, stat, access, constants} from "fs/promises";
 import { fileURLToPath } from 'url';
-import Data from "./routes/_interface.js";
+import {Data} from "./routes/_interface.js";
 
 const host = config.host || "localhost";
 const port = config.port || 3078;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-async function checkPathExists(path) {
+async function checkPathExists(path: string) {
   try {
     await access(path, constants.F_OK);
     return true; // Path exists
-  } catch (error) {
-    if (error.code === 'ENOENT') {
+  } catch (error: any) {
+    if ((error.code ?? '') === 'ENOENT') {
       return false; // Path does not exist
     } else {
       throw error; // Other error occurred

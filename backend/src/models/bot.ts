@@ -1,4 +1,7 @@
-export interface Bot {
+/**
+ * Root to help inheritance issues
+ */
+interface BotBase {
     /**
      * The bot's slug, used in the subdomain.
      */
@@ -8,7 +11,7 @@ export interface Bot {
      */
     id: number;
     /**
-     * The bot's username.
+     * The bot's name.
      */
     name: string;
     /**
@@ -24,10 +27,6 @@ export interface Bot {
      */
     slash_commands: boolean;
     /**
-     * The bot's prefix(es).
-     */
-    prefix?: string[];
-    /**
      * The bot's default permissions to use in the invite URL.
      */
     permissions: number;
@@ -39,4 +38,21 @@ export interface Bot {
      * When the bot's record was last updated on the website.
      */
     updated: number;
+}
+
+export interface Bot extends BotBase {
+    /**
+     * The bot's prefix(es).
+     */
+    prefix: string[] | null;
+}
+
+/**
+ * The bot representation in the database.
+ */
+export interface DBBot extends BotBase {
+    /**
+     * Arrays are stored as strings in the database.
+     */
+    prefix: string | null;
 }

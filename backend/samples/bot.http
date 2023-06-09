@@ -1,0 +1,46 @@
+### Get all Bots
+
+GET http://localhost:3078/bot
+Content-Type: application/json
+
+### Get Bot by slug
+
+GET http://localhost:3078/bot/test
+Content-Type: application/json
+
+### Create Bot
+POST http://localhost:3078/bot
+Content-Type: application/json
+
+{
+  "description": "## Test Bot\nThis is a **test** bot.<pre><code>var test = 'test';</code></pre>",
+  "id": 12,
+  "name": "Test",
+  "permissions": 8,
+  "prefix": [
+    "!"
+  ],
+  "short_description": "This is a test bot.",
+  "slash_commands": false,
+  "slug": "test"
+}
+
+### Edit Bot
+PATCH http://localhost:3078/bot/test
+Content-Type: application/json
+
+{
+  "description": "## Test Bot {{ $random.alphabetic (16)}} \nThis is a **test** bot.<pre><code>var test = 'test';</code></pre>",
+  "id": {{ $random.integer(1, 100) }},
+  "name": "Test",
+  "permissions": 8,
+  "prefix": [
+    "!"
+  ],
+  "short_description": "This is a test bot.",
+  "slash_commands": false
+}
+
+### Delete Bot
+DELETE http://localhost:3078/bot/test
+Content-Type: application/json

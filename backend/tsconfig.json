@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "module": "NodeNext",
-    "target": "esnext",
-    "resolveJsonModule": true
+    "target": "es2022",
+    "resolveJsonModule": true,
+    "strict": true
   },
   "exclude": [
     "node_modules"
