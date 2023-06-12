@@ -9,7 +9,7 @@ GET http://localhost:3078/bot/test
 Content-Type: application/json
 
 ### Create Bot
-POST http://localhost:3078/bot
+POST http://localhost:3078/bot/test
 Content-Type: application/json
 
 {
@@ -21,8 +21,7 @@ Content-Type: application/json
     "!"
   ],
   "short_description": "This is a test bot.",
-  "slash_commands": false,
-  "slug": "test"
+  "slash_commands": false
 }
 
 ### Edit Bot
@@ -30,7 +29,6 @@ PATCH http://localhost:3078/bot/test
 Content-Type: application/json
 
 {
-  "description": "## Test Bot {{ $random.alphabetic (16)}} \nThis is a **test** bot.<pre><code>var test = 'test';</code></pre>",
   "id": {{ $random.integer(1, 100) }},
   "name": "Test",
   "permissions": 8,

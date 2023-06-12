@@ -7,8 +7,8 @@ import editBot from "./edit.js";
 import deleteBot from "./delete.js";
 
 const router = Router();
-router.route('/:slug').get(getBot).patch([json(), editBot]).delete(deleteBot)
-router.route('/').get(getBots).post([json(), createBot]);
+router.route('/:slug').get(getBot).post([json(), createBot]).patch([json(), editBot]).delete(deleteBot)
+router.route('/').get(getBots)
 
 const data: Data = {
     router,

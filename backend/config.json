@@ -1,9 +1,7 @@
 {
   "db": {
-    "client": "better-sqlite3",
-    "connection": {
-      "filename": "./db.sqlite3"
-    }
+    "client": "pgnative",
+    "connection": "postgres://documenter:documenter@localhost/documenter"
   },
   "host": "localhost",
   "port": 3078

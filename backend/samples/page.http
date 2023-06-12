@@ -1,0 +1,52 @@
+### Get all pages for bot test
+
+GET http://localhost:3078/page/test
+Content-Type: application/json
+
+### Get page by slug for bot test
+
+GET http://localhost:3078/page/test/home
+Content-Type: application/json
+
+### Create page 'testing' for bot test
+
+POST http://localhost:3078/page/test/testing
+Content-Type: application/json
+
+{
+    "title": "Testing",
+    "content": [
+        {
+            "type": "text",
+            "content": "This is a **test** page."
+        },
+        {
+            "type": "snippet",
+            "slug": "testing"
+        }
+    ]
+}
+
+### Edit page 'testing' for bot test
+
+PATCH http://localhost:3078/page/test/testing
+Content-Type: application/json
+
+{
+    "title": "Testing",
+    "content": [
+        {
+            "type": "text",
+            "content": "This is a ${{ $random.alphanumeric (16)}} **test** page."
+        },
+        {
+            "type": "snippet",
+            "slug": "testing{{ $random.integer (1, 1000)}}"
+        }
+    ]
+}
+
+### Delete page 'testing' for bot test
+
+DELETE http://localhost:3078/page/test/testing
+Content-Type: application/json
