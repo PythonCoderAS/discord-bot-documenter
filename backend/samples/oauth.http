@@ -1,0 +1,18 @@
+### Validate Fake OAuth Token
+
+POST http://localhost:3078/oauth
+Content-Type: application/json
+
+{
+    "access_token": "fake-token",
+    "token_type": "Bearer"
+}
+
+### Logout with Token
+
+POST http://localhost:3078/oauth/logout
+Content-Type: application/json
+
+{
+    "access_token": "fake-token"
+}
