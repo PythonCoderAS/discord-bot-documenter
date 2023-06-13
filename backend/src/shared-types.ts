@@ -8,7 +8,7 @@ export type ContentType = {
     slug: string;
 };
 
-export const zodContentType = z.union([
+export const zodContentType = z.discriminatedUnion("type", [
     z.object({
         type: z.literal('text'),
         content: z.string(),

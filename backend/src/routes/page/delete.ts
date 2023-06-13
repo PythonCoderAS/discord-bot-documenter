@@ -7,6 +7,8 @@ import {PageRequestParams} from "./index.js";
 export default async function deletePage(req: Request<PageRequestParams>, res: Response<SimpleErrorType>) {
     if (req.params.slug === "home"){
         return res.status(403).json({type: ErrorTypes.Forbidden, message: "Cannot delete home page, please delete the bot entirely."});
+    } else if (req.params.slug.startsWith("commands/")){
+        return res.status(403).json({type: ErrorTypes.Forbidden, message: "Cannot delete commands page, please delete the command itself."});
     }
     const page = await knex<Page>('pages').where('slug', req.params.slug).and.where('bot_slug', req.params.bot_slug).first();
     if (page === undefined){
