@@ -1,6 +1,6 @@
 "use client"
 
-import {Button, Card, Col, Container, Row} from "react-bootstrap";
+import {Button, Col, Container, Row} from "react-bootstrap";
 
 function BotLink({botName, slug}: {botName: string, slug: string}) {
     return (
