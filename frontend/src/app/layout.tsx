@@ -1,4 +1,4 @@
-import './globals.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Inter } from 'next/font/google'
 import React from "react";
 
@@ -15,15 +15,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-bs-theme="dark">
       <body className={inter.className} style={{padding: "1%"}}>
-        <header>
-
-        </header>
-        <main>{children}</main>
-        <footer>
-
-        </footer>
+        {children}
       </body>
     </html>
   )
